@@ -1,12 +1,14 @@
 const initState = {
+  user: null,
 };
 
 const appReducer = (state = initState, action) => {
   const nextState = { ...state };
+  const { type, payload } = action;
 
-  switch (action.type) {
-    case 'ACTION_TYPE':
-      /* ... */
+  switch (type) {
+    case 'SET_USER':
+      nextState.user = payload.name;
       return nextState;
 
     default:

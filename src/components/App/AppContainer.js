@@ -2,15 +2,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import App from './App';
-import { actionType } from '../actions/AppActions';
-
+import { setUser } from '../../actions/AppActions';
 
 const mapStateToProps = (state) => ({
-  ...state,
+  user: state.app.user,
 });
 
 const mapDispatchToProps = {
-  actionType,
+  setUser,
 };
 
 const AppContainer = withRouter(connect(

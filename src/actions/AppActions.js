@@ -1,4 +1,4 @@
-export const actionType = (payload) => ({
-  type: 'ACTION_TYPE',
-  payload,
+export const setUser = (name) => ({
+  type: 'SET_USER',
+  payload: { name },
 });
