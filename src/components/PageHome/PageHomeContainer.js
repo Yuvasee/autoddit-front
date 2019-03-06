@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import PageHome from './PageHome';
-import { addLinkFlush } from '../../actions/linkActions';
+import { addLinkFlush, getLinks } from '../../actions/linkActions';
 
 const mapStateToProps = (state) => ({
   user: state.app.user,
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addLinkFlush: () => dispatch(addLinkFlush())
+  addLinkFlush: () => dispatch(addLinkFlush()),
+  getLinks: () => dispatch(getLinks())
 });
 
 const PageHomeContainer = withRouter(connect(

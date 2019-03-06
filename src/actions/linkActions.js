@@ -37,3 +37,32 @@ export function addLink(link) {
       .catch(error => dispatch(addLinkFailure(error)))
   }
 }
+
+export const getLinksRequest = (status) => ({
+  type: 'GET_LINKS_REQUEST',
+  payload: { status },
+});
+
+export const getLinksSuccess = (links) => ({
+  type: 'GET_LINKS_SUCCESS',
+  payload: { links },
+});
+
+export const getLinksFailure = (error) => ({
+  type: 'GET_LINKS_FAILURE',
+  payload: { error },
+});
+
+export function getLinks() {
+  return function(dispatch) {
+    dispatch(getLinksRequest(true));
+
+    return fetch(`${process.env.API_URI}/links`)
+      .then(response => {
+        dispatch(getLinksRequest(false));
+        return response.json();
+      })
+      .then(json => dispatch(getLinksSuccess(json)))
+      .catch(error => dispatch(getLinksFailure(error)))
+  }
+}
