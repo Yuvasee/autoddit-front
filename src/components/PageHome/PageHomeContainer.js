@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Home from './Home';
+import PageHome from './PageHome';
 import { setUser } from '../../actions/AppActions';
 
 const mapStateToProps = (state) => ({
@@ -12,9 +12,9 @@ const mapDispatchToProps = {
   setUser,
 };
 
-const HomeContainer = withRouter(connect(
+const PageHomeContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home));
+)(PageHome));
 
-export default HomeContainer;
+export default PageHomeContainer;

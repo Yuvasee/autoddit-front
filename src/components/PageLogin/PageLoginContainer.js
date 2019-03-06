@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Login from './Login';
+import PageLogin from './PageLogin';
 import { setUser } from '../../actions/AppActions';
 
 const mapStateToProps = (state) => ({
@@ -12,9 +12,9 @@ const mapDispatchToProps = {
   setUser,
 };
 
-const LoginContainer = withRouter(connect(
+const PageLoginContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Login));
+)(PageLogin));
 
-export default LoginContainer;
+export default PageLoginContainer;

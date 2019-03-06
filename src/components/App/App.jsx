@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect, Switch, Route} from 'react-router-dom';
 
-import Fallback from '../Fallback/Fallback';
-import Login from '../Login/LoginContainer';
-import Home from '../Home/HomeContainer';
+import PageFallback from '../PageFallback/PageFallback';
+import PageLogin from '../PageLogin/PageLoginContainer';
+import PageHome from '../PageHome/PageHomeContainer';
+import PageAddLink from '../PageAddLink/PageAddLinkContainer';
 
 import './App.scss';
 
@@ -21,12 +22,15 @@ export default class App extends Component {
     }
 
     return (
-      <div className="app">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route component={Fallback} />
-        </Switch>
+      <div className="container-fluid">
+        <div className="app-container">
+          <Switch>
+            <Route exact path="/" component={PageHome} />
+            <Route exact path="/login" component={PageLogin} />
+            <Route exact path="/add-link" component={PageAddLink} />
+            <Route component={PageFallback} />
+          </Switch>
+        </div>
       </div>
     );
 

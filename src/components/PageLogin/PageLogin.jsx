@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import './login.scss';
+import './PageLogin.scss';
 
-export default class Login extends Component {
+export default class PageLogin extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSignin = this.handleSignin.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       name: ''
-    }
+    };
   }
 
   handleChange(e) {
-    this.setState({ name: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
-  handleSignin(e) {
+  handleSubmit(e) {
     e.preventDefault();
-
     this.props.setUser(this.state.name);
   }
 
@@ -40,7 +41,7 @@ export default class Login extends Component {
               <h5 className="card-title text-center">
                 Sign In
               </h5>
-              <form className="form-signin" onSubmit={this.handleSignin}>
+              <form className="form-signin" onSubmit={this.handleSubmit}>
                 <div className="form-label-group">
                   <input
                     type="text"
@@ -51,6 +52,7 @@ export default class Login extends Component {
                     autoFocus
                     value={this.state.name}
                     onChange={this.handleChange}
+                    name="name"
                   />
                   <label htmlFor="inputName">Name</label>
                 </div>
