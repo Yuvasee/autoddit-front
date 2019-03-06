@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import Spinner from '../common/Spinner';
 
 export default class PageAddLink extends Component {
   constructor(props) {
@@ -35,6 +38,8 @@ export default class PageAddLink extends Component {
   }
 
   render() {
+    const { addStatus, addError, addResult } = this.props.link;
+
     return (
       <div>
         <h2>ADD LINK</h2>
@@ -71,9 +76,27 @@ export default class PageAddLink extends Component {
             <label htmlFor="inputName">Image</label>
           </div>
 
-          <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
-            Add link
-          </button>
+          {(!addStatus && !addResult) &&
+            <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+              Add link
+            </button>
+          }
+
+          {addStatus &&
+            <Spinner />
+          }
+
+          {addResult &&
+            <div className="alert alert-success" role="alert">
+              Link added. <Link to="/">Return to main page</Link>
+            </div>
+          }
+
+          {addError &&
+            <div className="alert alert-danger" role="alert">
+              Error: { addError }
+            </div>
+          }
         </form>
       </div>
     )
