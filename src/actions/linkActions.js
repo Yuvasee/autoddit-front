@@ -24,6 +24,7 @@ export function addLink(link) {
     var data = new FormData();
     data.append('image', link.image);
     data.append('title', link.title);
+    data.append('user', link.user);
 
     return fetch(`${process.env.API_URI}/links`, {
       method: 'post',

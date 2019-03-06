@@ -34,7 +34,8 @@ export default class PageAddLink extends Component {
     e.preventDefault();
 
     const { title, image } = this.state;
-    this.props.addLink({ title, image });
+    const { user } = this.props;
+    this.props.addLink({ title, image, user });
   }
 
   render() {

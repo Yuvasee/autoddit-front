@@ -5,7 +5,7 @@ import './Link.scss';
 
 export default class Link extends Component {
   render() {
-    const { image, title, createdAt } = this.props.data;
+    const { image, title, createdAt, user } = this.props.data;
     const submitted = moment(createdAt);
 
     return (
@@ -26,7 +26,7 @@ export default class Link extends Component {
         </div>
         <div className="content">
           <div className="submitted">
-            Submitted on {submitted.format('MMM DD, YYYY HH:MM')} by USER
+            Submitted on {submitted.format('MMM DD, YYYY HH:MM')} by {user}
           </div>
           <div className="title">
             {title}
